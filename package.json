@@ -8,6 +8,7 @@
         "start-webp": "node webp-monitor.js"
     },
     "author": "imrobin.xi@gmail.com",
+    "license": "MIT",
     "dependencies": {
         "chokidar": "^1.6.0",
         "jimp": "^0.8.4"
