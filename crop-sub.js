@@ -23,7 +23,7 @@ let start = function() {
     let waitTime = 350;
     let working = false;
     setTimeout(crop, waitTime);
-    log('图片裁切任务已经启动');
+    log('图片裁切处理服务已经启动');
 
     function crop() {
         if (!working) {
