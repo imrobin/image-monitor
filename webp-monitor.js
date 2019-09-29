@@ -1,7 +1,7 @@
 /*
     webp图片生成
     
-    运行：npm install && npm start
+    运行：npm install && npm start-webp
 
     程序依赖谷歌官方webp转换工具cwebp
     安装完成后运行cwebp -h 如果显示了使用帮助则表示安装成功
