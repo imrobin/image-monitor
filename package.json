@@ -2,10 +2,14 @@
     "name": "image-monitor",
     "version": "1.0.0",
     "description": "监控图片夹，进行图片处理",
+    "keywords": ["crop", "image monitor", "webp", "batch crop", "image convert"],
     "main": "crop-monitor.js",
     "scripts": {
         "start-crop": "node crop-monitor.js",
         "start-webp": "node webp-monitor.js"
+    },
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org/"
     },
     "author": "imrobin.xi@gmail.com",
     "license": "MIT",
