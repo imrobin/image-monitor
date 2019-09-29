@@ -1,0 +1,15 @@
+{
+    "name": "image-monitor",
+    "version": "1.0.0",
+    "description": "监控图片夹，进行图片处理",
+    "main": "crop-monitor.js",
+    "scripts": {
+        "start-crop": "node crop-monitor.js",
+        "start-webp": "node webp-monitor.js"
+    },
+    "author": "imrobin.xi@gmail.com",
+    "dependencies": {
+        "chokidar": "^1.6.0",
+        "jimp": "^0.8.4"
+    }
+}
