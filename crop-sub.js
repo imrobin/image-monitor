@@ -32,11 +32,11 @@ let start = function() {
             if (option) {
                 log('正在处理图片' + option.imgPath + ', event:' + option.event + ', 队列任务数量:' + CROP_QUEUE.length);
                 let cropPromises = [];
-                option.widthList.forEach((width) => {
+                option.scaleSizeList.forEach((size) => {
                     if (option.event == 'add') {
-                        cropPromises.push(cropImg(option.imgPath, width));
+                        cropPromises.push(cropImg(option.imgPath, size));
                     } else if (option.event == 'unlink') {
-                        cropPromises.push(deleteImg(option.imgPath, width))
+                        cropPromises.push(deleteImg(option.imgPath, size))
                     } else {
                         console.error('Not support ' + option.event + '.')
                     }
@@ -62,21 +62,23 @@ let start = function() {
     }
 };
 
-function cropImg(imgPath, width) {
+function cropImg(imgPath, size, savePath) {
     return Jimp.read(imgPath)
         .then(image => {
-            let wpath = path.join(path.dirname(imgPath), "/" + width + "/"+ path.basename(imgPath));
-            width = width > image.getWidth() ? image.getWidth() : width;
-            let height = width > image.getHeight() ? image.getHeight() : width;
+            imgPath = savePath || imgPath;
+            let wpath = path.join(path.dirname(imgPath), "/" + size.width + "_" + size.height + "/" + path.basename(imgPath));
+            let width = size.width > image.getWidth() ? image.getWidth() : size.width;
+            let height = size.height > image.getHeight() ? image.getHeight() : size.height;
             return image.scaleToFit(width, height, Jimp.AUTO)
                 .quality(QUALITY) // set JPEG quality
                 .write(wpath); // save
         });
 }
 
-function deleteImg(imgPath, width) {
+function deleteImg(imgPath, size, savePath) {
     return new Promise((resolve, reject) => {
-        let wpath = path.join(path.dirname(imgPath), "/" + width + "/"+ path.basename(imgPath));
+        imgPath = savePath || imgPath;
+        let wpath = path.join(path.dirname(imgPath), "/" + size.width + "_" + size.height + "/" + path.basename(imgPath));
         fs.unlink(wpath, (err) => {
             if (err) {
                 reject(err);
@@ -91,7 +93,8 @@ function deleteImg(imgPath, width) {
 let option = {
     event: 'add', //add,unlink
     imgPath: '',
-    widthList: [80, 110, 240, 400, 800, 960]
+    savePath: '',
+    scaleSizeList: [{ width: 80, height: 80 }, { width: 110, height: 110 }, { width: 240, height: 240 }, { width: 400, height: 400 }, { width: 800, height: 800 }, { width: 960, height: 960 }]
 };
 */
 process.on('message', (option) => {
