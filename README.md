@@ -90,3 +90,9 @@ object of that path).
 subdirectories will be traversed.
 
 #### cropOpts
+
+* `savePath` (string). Paths to files, dirs to be saved. If not set, savePath is parent directory of original file. Subdirectory is dynamic, that named by width and height of scaleSizeList.
+Naming format of Subdirectory "`width`_`height`".
+
+
+* `scaleSizeList` (object array). Crop the image size array.
