@@ -63,11 +63,9 @@ crop.cropOnChange(true);
 
 `new CropMonitor(watcherOpts, cropOpts)`
 
-* `watcherOpts` (object) Images directory monitor configuration.
+* `watcherOpts` (object) Images directory monitor configuration. Options object as defined below:[watcherOpts](#watcheropts).
 
-Options object as defined below:
-
-* `options` (object) Options object as defined below:
+* `cropOpts` (object) Options object as defined below:[cropOpts](#cropopts).
 
 
 #### watcherOpts
