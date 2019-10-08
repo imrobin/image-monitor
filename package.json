@@ -1,7 +1,7 @@
 {
     "name": "image-monitor",
-    "version": "1.0.1",
-    "description": "监控图片夹，进行图片处理",
+    "version": "1.0.2",
+    "description": "Monitor image directories for image processing",
     "keywords": ["crop", "image monitor", "webp", "batch crop", "image convert"],
     "main": "index.js",
     "scripts": {

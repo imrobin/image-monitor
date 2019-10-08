@@ -78,7 +78,7 @@ recursively, or glob patterns.
     library: [picomatch](https://github.com/micromatch/picomatch).
 
 * `ignoreFiles` (string of regular expression, default: `/(^\..+)|(.+[\/\\]\..+)/`).
-    - Note: supported format: `'.jpg', '.jpeg', '.png', '.bmp', '.gif'`.
+    - Note: Supported format: `'.jpg', '.jpeg', '.png', '.bmp', '.gif'`.
 
 * `depth` (default: `0`). If set, limits how many levels of
 subdirectories will be traversed.
