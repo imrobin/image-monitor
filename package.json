@@ -1,14 +1,28 @@
 {
     "name": "image-monitor",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Monitor image directories for image processing",
-    "keywords": ["crop", "image monitor", "webp", "batch crop", "image convert"],
+    "keywords": [
+        "crop",
+        "image monitor",
+        "webp",
+        "batch crop",
+        "image convert"
+    ],
     "main": "index.js",
     "scripts": {
         "test": "node test.js"
     },
     "publishConfig": {
         "registry": "https://registry.npmjs.org/"
+    },
+    "homepage": "https://github.com/imrobin/image-monitor",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/imrobin/image-monitor.git"
+    },
+    "bugs": {
+        "url": "https://github.com/imrobin/image-monitor/issues"
     },
     "author": "imrobin.xi@gmail.com",
     "license": "MIT",
