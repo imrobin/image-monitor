@@ -91,7 +91,7 @@ Naming format of subdirectory "`width`_`height`".
 
 * `scaleSizeList` (object array). Crop the image size array.
 
-#### Using help
+## Using help
 
 * [Node.js: what is ENOSPC error and how to solve?](https://stackoverflow.com/questions/22475849/node-js-what-is-enospc-error-and-how-to-solve).
 
