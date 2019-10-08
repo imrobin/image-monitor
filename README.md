@@ -34,7 +34,7 @@ crop.deleteOnUnlink(true);
 ## API
 
 ```javascript
-// define argments of watcher.
+// Define argments of watcher.
 let watcherOpts = {
     watchImgDir: '图片目录',
     ignoreFiles: '',
@@ -60,3 +60,35 @@ crop.deleteOnUnlink(true);
 // Crop images when event of change triggered.
 crop.cropOnChange(true);
 ```
+
+`new CropMonitor(watcherOpts, cropOpts)`
+
+* `watcherOpts` (object) Images directory monitor configuration.
+
+Options object as defined below:
+
+* `options` (object) Options object as defined below:
+
+
+#### watcherOpts
+
+* `watchImgDir` (string or array of strings). Paths to files, dirs to be watched
+recursively, or glob patterns.
+    - Note: globs must not contain windows separators (`\`),
+    because that's how they work by the standard —
+    you'll need to replace them with forward slashes (`/`).
+    - Note 2: for additional glob documentation, check out low-level
+    library: [picomatch](https://github.com/micromatch/picomatch).
+
+* `ignored` ([anymatch](https://github.com/es128/anymatch)-compatible definition)
+Defines files/paths to be ignored. The whole relative or absolute path is
+tested, not just filename. If a function with two arguments is provided, it
+gets called twice per path - once with a single argument (the path), second
+time with two arguments (the path and the
+[`fs.Stats`](http://nodejs.org/api/fs.html#fs_class_fs_stats)
+object of that path).
+
+* `depth` (default: `0`). If set, limits how many levels of
+subdirectories will be traversed.
+
+#### cropOpts
