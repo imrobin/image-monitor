@@ -1,4 +1,4 @@
-const cropMonitor = require('./index.js');
+const CropMonitor = require('./index.js');
 
 
 let watcherOpts = {
@@ -8,9 +8,10 @@ let watcherOpts = {
 };
 
 let cropOpts = {
-    savePath: 'images1',
+    savePath: 'images',
     scaleSizeList: [{ width: 80, height: 80 }, { width: 110, height: 110 }, { width: 240, height: 240 }, { width: 400, height: 400 }, { width: 800, height: 800 }, { width: 960, height: 960 }]
 };
 
-let crop = new cropMonitor(watcherOpts, cropOpts);
+let crop = new CropMonitor(watcherOpts, cropOpts);
 crop.cropOnAdd(true);
+crop.deleteOnUnlink(true);
