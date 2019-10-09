@@ -44,6 +44,7 @@ let watcherOpts = {
 // Define argments of crop.
 let cropOpts = {
     savePath: 'image save directory',
+    quality: 'image quality',
     scaleSizeList: [{ width: 80, height: 80 }, { width: 110, height: 110 }, { width: 240, height: 240 }]
 };
 
@@ -87,6 +88,8 @@ subdirectories will be traversed.
 
 * `savePath` (string). Paths to files, dirs to be saved. If not set, savePath is parent directory of original file. Subdirectory is dynamic, that named by width and height of scaleSizeList.
 Naming format of subdirectory "`width`_`height`".
+
+* `quality` (number, default: `75`). Set the quality of saved JPEG, 0 - 100.
 
 
 * `scaleSizeList` (object array). Crop the image size array.
