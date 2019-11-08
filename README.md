@@ -23,7 +23,9 @@ let watcherOpts = {
 
 let cropOpts = {
     savePath: 'image save directory',
-    scaleSizeList: [{ width: 80, height: 80 }, { width: 110, height: 110 }, { width: 240, height: 240 }]
+    maxCropScale: 1.5,
+    quality: 60,
+    scaleSizeList: [{ width: 80, height: 80, quality: 70 }, { width: 110, height: 110, quality: 70 }, { width: 240, height: 240, quality: 70 }]
 };
 
 let crop = new CropMonitor(watcherOpts, cropOpts);
@@ -45,7 +47,8 @@ let watcherOpts = {
 let cropOpts = {
     savePath: 'image save directory',
     quality: 'image quality',
-    scaleSizeList: [{ width: 80, height: 80 }, { width: 110, height: 110 }, { width: 240, height: 240 }]
+    maxCropScale: 1.5,
+    scaleSizeList: [{ width: 80, height: 80, quality: 70 }, { width: 110, height: 110, quality: 70 }, { width: 240, height: 240, quality: 70 }]
 };
 
 // Initialize CropMonitor.
