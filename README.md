@@ -36,23 +36,29 @@ crop.deleteOnUnlink(true);
 ## API
 
 ```javascript
-// Define argments of watcher.
-let watcherOpts = {
-    watchImgDir: 'image directory',
-    ignoreFiles: '',
-    depth: 0
-};
-
-// Define argments of crop.
-let cropOpts = {
-    savePath: 'image save directory',
-    quality: 'image quality',
-    maxCropScale: 1.5,
-    scaleSizeList: [{ width: 80, height: 80, quality: 70 }, { width: 110, height: 110, quality: 70 }, { width: 240, height: 240, quality: 70 }]
+// Define argments of watcher and crop.
+let opt = {
+    watcher: {
+        ignoreFiles: '',
+        depth: 0
+    },
+    cropper: [{
+        watchObj: 'images1',
+        savePath: 'image save directory',
+        maxCropScale: 1.5,
+        quality: 70,// image quality
+        scaleSizeList: [{ width: 80, height: 80, quality: 70 }, { width: 110, height: 110, quality: 70 }, { width: 240, height: 240, quality: 70 }, { width: 400, height: 400, quality: 70 }, { width: 800, height: 800, quality: 70 }, { width: 960, height: 960, quality: 70 }]
+    }, {
+        watchObj: 'images2',
+        savePath: 'image save directory',
+        maxCropScale: 1.5,
+        quality: 70,// image quality
+        scaleSizeList: [{ width: 80, height: 80, quality: 70 }, { width: 110, height: 110, quality: 70 }, { width: 240, height: 240, quality: 70 }, { width: 400, height: 400, quality: 70 }, { width: 800, height: 800, quality: 70 }, { width: 960, height: 960, quality: 70 }]
+    }]
 };
 
 // Initialize CropMonitor.
-let crop = new CropMonitor(watcherOpts, cropOpts);
+let crop = new CropMonitor(opt);
 
 // Set event method.
 // Crop images when event of add triggered.
@@ -65,21 +71,13 @@ crop.deleteOnUnlink(true);
 crop.cropOnChange(true);
 ```
 
-`new CropMonitor(watcherOpts, cropOpts)`
+`new CropMonitor(opt)`
 
-* `watcherOpts` (object) Images directory monitor configuration. Options object as defined below:[watcherOpts](#watcheropts).
+* `opt` (object) Images directory monitor configuration. Options object as defined below:[watcher](#watcher)、[cropper](#cropper).
 
-* `cropOpts` (object) Options object as defined below:[cropOpts](#cropopts).
+#### watcher
 
-#### watcherOpts
-
-* `watchImgDir` (string or array of strings). Paths to files, dirs to be watched
-recursively, or glob patterns.
-    - Note: globs must not contain windows separators (`\`),
-    because that's how they work by the standard —
-    you'll need to replace them with forward slashes (`/`).
-    - Note 2: for additional glob documentation, check out low-level
-    library: [picomatch](https://github.com/micromatch/picomatch).
+(object). watcher monitor configuration.
 
 * `ignoreFiles` (string of regular expression, default: `/(^\..+)|(.+[\/\\]\..+)/`).
     - Note: Supported format: `'.jpg', '.jpeg', '.png', '.bmp', '.gif'`.
@@ -87,7 +85,16 @@ recursively, or glob patterns.
 * `depth` (default: `0`). If set, limits how many levels of
 subdirectories will be traversed.
 
-#### cropOpts
+#### cropper
+
+(object array). cropper configuration.
+
+* `watchObj` (string). Paths to files, dirs to be watched recursively, or glob patterns.
+    - Note: globs must not contain windows separators (`\`),
+    because that's how they work by the standard —
+    you'll need to replace them with forward slashes (`/`).
+    - Note 2: for additional glob documentation, check out low-level
+    library: [picomatch](https://github.com/micromatch/picomatch).
 
 * `savePath` (string). Paths to files, dirs to be saved. If not set, savePath is parent directory of original file. Subdirectory is dynamic, that named by width and height of scaleSizeList.
 Naming format of subdirectory "`width`_`height`".
