@@ -6,7 +6,7 @@ let opt = {
         depth: 0
     },
     cropper: [{
-        watchObj: 'C:\\Users\\XIRUIBIN\\Desktop\\images',
+        watchObj: 'images1',
         savePath: 'images',
         maxCropScale: 1.5,
         quality: 60,
