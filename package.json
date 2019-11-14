@@ -1,6 +1,6 @@
 {
     "name": "image-monitor",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Monitor image directories for image processing",
     "keywords": [
         "crop",
@@ -28,6 +28,7 @@
     "license": "MIT",
     "dependencies": {
         "chokidar": "^1.6.0",
-        "jimp": "^0.8.4"
+        "jimp": "^0.8.4",
+        "log4js": "^6.0.0"
     }
 }

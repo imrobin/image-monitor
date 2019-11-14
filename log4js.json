@@ -1,0 +1,28 @@
+{
+  "appenders": {
+    "monitor": {
+      "type": "dateFile",
+      "filename": "logs/server.log",
+      "pattern": "-yyyy-MM-dd",
+      "category": "default"
+    },
+    "errorFile": {
+      "type": "file",
+      "filename": "logs/errors.log"
+    },
+    "errors": {
+      "type": "logLevelFilter",
+      "level": "ERROR",
+      "appender": "errorFile"
+    }
+  },
+  "categories": {
+    "default": {
+      "appenders": [
+        "monitor",
+        "errors"
+      ],
+      "level": "DEBUG"
+    }
+  }
+}
